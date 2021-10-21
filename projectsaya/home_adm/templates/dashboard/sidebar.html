@@ -1,0 +1,89 @@
+<div id="sidebar" class="sidebar py-3">
+  <div
+  class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family"
+  >
+  MAIN
+</div>
+<ul class="sidebar-menu list-unstyled">
+  <li class="sidebar-list-item">
+    <a href="/home_adm" class="sidebar-link text-muted active"
+    ><i class="o-home-1 mr-3 text-gray"></i><span>Home</span></a
+    >
+  </li>
+  <li class="sidebar-list-item">
+    <a href="/list_rental" class="sidebar-link text-muted"
+    ><i class="o-document-1 mr-3 text-gray"></i
+      ><span>List rental</span></a
+      >
+    </li>
+    <li class="sidebar-list-item">
+    <a href="/list_rental/kategori" class="sidebar-link text-muted"
+    ><i class="o-stack-1 mr-3 text-gray"></i
+      ><span>Kategori rental</span></a
+      >
+    </li>
+    <li class="sidebar-list-item">
+    <a href="/blog" class="sidebar-link text-muted"
+    ><i class="o-code-window-1 mr-3 text-gray"></i
+      ><span>Blog</span></a
+      >
+    </li>
+     <li class="sidebar-list-item">
+    <a href="/blog/kategoriblog" class="sidebar-link text-muted"
+    ><i class="o-id-card-1 mr-3 text-gray"></i
+      ><span>Kategori blog</span></a
+      >
+    </li>
+    <li class="sidebar-list-item">
+    <a href="/mahasiswa" class="sidebar-link text-muted"
+    ><i class="o-repository-1 mr-3 text-gray"></i
+      ><span>Gallery</span></a
+      >
+    </li>
+     <li class="sidebar-list-item">
+    <a href="/aboutus" class="sidebar-link text-muted"
+    ><i class="o-contact-card-1 mr-3 text-gray"></i
+      ><span>AboutUs</span></a
+      >
+    </li>
+    <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Komentar</span></a>
+            <div id="pages" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                <li class="sidebar-list-item"><a href="/contact_adm" class="sidebar-link text-muted pl-lg-5">Contact</a></li>
+                <li class="sidebar-list-item"><a href="/contact_adm/komentarlist" class="sidebar-link text-muted pl-lg-5">Komentar list</a></li>
+                <li class="sidebar-list-item"><a href="/contact_adm/komentarblog" class="sidebar-link text-muted pl-lg-5">Komentar blog</a></li>
+              </ul>
+            </div>
+          </li>
+    <li class="sidebar-list-item">
+      <a class="sidebar-link text-muted" data-toggle="modal" data-target="#exampleModal"
+      ><i class="o-exit-1 mr-3 text-gray"></i
+        ><span>logout</span></a
+        >
+      </li>
+    </ul>
+  </div>
+ <div class="d-flex align-items-stretch">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">logout</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form class="form-horizontal" action="/home_adm/logout" method="POST">
+          {% csrf_token %}
+          <div class="modal-body">                  
+            Apakah anda yakin ingin keluar ?                              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <input type="submit" name="logout" class="btn btn-danger">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

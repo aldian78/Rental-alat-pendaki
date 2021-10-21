@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{judul}}</title>
+    <link rel="stylesheet" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,800">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.default.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/custom.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/orionicons.css" %}">
+    <link rel="shortcut icon" href="{% static "img/django1.png" %}">
+  </head>
+  <body>
+    {% include "dashboard/header.html" %}
+    <div class="d-flex align-items-stretch">
+      {% include "dashboard/sidebar.html" %}
+      <div class="page-holder w-100 d-flex flex-wrap">
+        <div class="container-fluid px-xl-5">
+          <section class="py-5">
+        {% if messages %}
+          {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">LOG IN</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <form class="form-horizontal">
+                    <div class="modal-body">                      
+                    Selamat, {{ user }} {{ message }}                              
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+           <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">LOG OUT</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form class="form-horizontal">
+                  <div class="modal-body">                      
+                    {{ message }}                              
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+           {% endif %}
+                {% endfor %}
+            {% endif %}
+            <div class="row">
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-violet"></div>
+                    <div class="text">
+                      <h6 class="mb-0">Django</h6>
+                      <span class="text-gray"></span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-violet">
+                    <i class="fas fa-bookmark"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                <div
+                  class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between"
+                >
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-green"></div>
+                    <div class="text">
+                      <h6 class="mb-0">List rental</h6>
+                      <span class="text-gray">Total {{hsl}}</span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-green">
+                    <i class="fab fa-buromobelexperte"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                <div
+                  class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between"
+                >
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-blue"></div>
+                    <div class="text">
+                      <h6 class="mb-0">Gallery</h6>
+                      <span class="text-gray">Total {{glry}}</span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-blue">
+                    <i class="fas fa-list-alt"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                <div
+                  class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between"
+                >
+                  <div class="flex-grow-1 d-flex align-items-center">
+                    <div class="dot mr-3 bg-red"></div>
+                    <div class="text">
+                      <h6 class="mb-0">Blog</h6>
+                      <span class="text-gray">Total {{blg}}</span>
+                    </div>
+                  </div>
+                  <div class="icon text-white bg-red">
+                    <i class="fas fa-clipboard-list"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        {% include "dashboard/footer.html" %}
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="{% static "vendor/jquery/jquery.min.js" %}" type="text/javascript"></script>
+    <script src="{% static "vendor/popper.js/umd/popper.min.js" %}" type="text/javascript"></script>
+    <script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}" type="text/javascript"></script>
+    <script src="{% static "vendor/jquery.cookie/jquery.cookie.js" %}" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="{% static "js/front.js" %}" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(window).on('load', function(){
+        $('#alertModal').modal('show');
+      });
+    </script>            
+  </body>
+</html>

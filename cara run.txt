@@ -1,0 +1,11 @@
+cd # masuk satu folder
+cd .. # mundur satu folder
+dir # direktory
+pip list # melihat yg sudah diinstallasi
+..\Env\Scripts\activate.bat # masuk sebagai (env)
+manage.py runserver # run server
+deactivate # keluar sebagai (env)
+python manage.py startapp # membuat app/folder
+pip install Django==3.1.3 #install django
+./manage.py makemigrations ## kita buat makemigration terlebih dahulu
+python manage.py migrate --fake appName zero #menghapus bekas migrations
